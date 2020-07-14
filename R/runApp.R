@@ -1,7 +1,8 @@
 #' Shiny App for Health Finance
 #' 
 #' Opens the shiny interface for the health finance functionality
-#' provided by the `healthfinance` package.
+#' provided by the `healthfinance` package. The interface currently
+#' consists of 3 tabs: (1) import; (2) model; and (3) export.
 #' 
 #' @return shiny application object
 #' @import shiny
