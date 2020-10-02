@@ -60,3 +60,19 @@ list with 2 numeric vectors of length 36 each
 Allows calculation of projected revenue for upcoming 36 months along with
 target revenue for corresponding months.
 }
+\examples{
+
+# sample dataset of procedures
+eg_procs <- data.frame(Name = c("Sample 1", "Sample 2", "Sample 3"),
+                       Revenue = c(100000, 200000, 150000),
+                       Volume = 1000, 25, 750)
+
+# calculate revenue projections for next 36 months with default parameters
+proj <- calc_rev(eg_procs)
+
+# print 36-month target revenues
+print(proj$Target)
+
+# print 36-month projected revenues
+print(proj$Projected)
+}

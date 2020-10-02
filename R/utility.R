@@ -31,6 +31,21 @@
 #'   boosts above
 #' @return list with 2 numeric vectors of length 36 each
 #' @export
+#' @examples 
+#' 
+#' # sample dataset of procedures
+#' eg_procs <- data.frame(Name = c("Sample 1", "Sample 2", "Sample 3"),
+#'                        Revenue = c(100000, 200000, 150000),
+#'                        Volume = 1000, 25, 750)
+#' 
+#' # calculate revenue projections for next 36 months with default parameters
+#' proj <- calc_rev(eg_procs)
+#' 
+#' # print 36-month target revenues
+#' print(proj$Target)
+#' 
+#' # print 36-month projected revenues
+#' print(proj$Projected)
 calc_rev <- function(procedures,                    #- df or tibble containing 3 columns (name, annual volume, annual revenue)
                      growth = rep(0, 3),            #- default = 0% for all 3 years
                      comp_ratio = rep(1, 4),        #- Mcaid, Commercial, Other
