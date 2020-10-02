@@ -7,6 +7,10 @@
 #' @return shiny application object
 #' @import shiny
 #' @import ggplot2
+#' @importFrom readr read_csv
+#' @importFrom tibble tibble
+#' @importFrom scales dollar
+#' @importFrom lubridate month year
 #' @export
 hfin <- function() {
   app_dir <- system.file("hfin", package = "healthfinance")
