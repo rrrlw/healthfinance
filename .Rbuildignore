@@ -1,6 +1,6 @@
 ^healthfinance\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$
+^LICENSE$
 ^README\.md$
 ^\.travis\.yml$
 ^appveyor\.yml$
