@@ -264,15 +264,15 @@ function(input, output, session) {
       project_rev$Type <- factor(project_rev$Type,
                                  levels = c("Target", "Projected"))
       
-      ggplot(project_rev, aes(x = Month, y = Amount, fill = Type)) +
-        geom_bar(stat = "identity", position = "dodge") +
-        xlab(element_blank()) +
-        ylab("Monthly Revenue") +
-        scale_y_continuous(labels = custom_dollar) +
-        ggtitle("2020 Revenue Breakdown") +
+      ggplot2::ggplot(project_rev, ggplot2::aes(x = Month, y = Amount, fill = Type)) +
+        ggplot2::geom_bar(stat = "identity", position = "dodge") +
+        ggplot2::xlab(ggplot2::element_blank()) +
+        ggplot2::ylab("Monthly Revenue") +
+        ggplot2::scale_y_continuous(labels = custom_dollar) +
+        ggplot2::ggtitle("2020 Revenue Breakdown") +
         #theme_cowplot() +
-        theme(legend.position = "top",
-              plot.margin = unit(c(0, 0, 0, 0), "null"))
+        ggplot2::theme(legend.position = "top",
+              plot.margin = ggplot2::unit(c(0, 0, 0, 0), "null"))
     })
     output$project24 <- renderPlot({
       project_rev <- tibble::tibble(
@@ -291,15 +291,15 @@ function(input, output, session) {
       project_rev$Type <- factor(project_rev$Type,
                                  levels = c("Target", "Projected"))
       
-      ggplot(project_rev, aes(x = Month, y = Amount, fill = Type)) +
-        geom_bar(stat = "identity", position = "dodge") +
-        xlab(element_blank()) +
-        ylab("Monthly Revenue") +
-        scale_y_continuous(labels = custom_dollar) +
-        ggtitle("2021 Revenue Breakdown") +
+      ggplot2::ggplot(project_rev, ggplot2::aes(x = Month, y = Amount, fill = Type)) +
+        ggplot2::geom_bar(stat = "identity", position = "dodge") +
+        ggplot2::xlab(ggplot2::element_blank()) +
+        ggplot2::ylab("Monthly Revenue") +
+        ggplot2::scale_y_continuous(labels = custom_dollar) +
+        ggplot2::ggtitle("2021 Revenue Breakdown") +
         #theme_cowplot() +
-        theme(legend.position = "none",
-              plot.margin = unit(c(0, 0, 0, 0), "null"))
+        ggplot2::theme(legend.position = "none",
+              plot.margin = ggplot2::unit(c(0, 0, 0, 0), "null"))
     })
     output$project36 <- renderPlot({
       project_rev <- tibble::tibble(
@@ -318,15 +318,15 @@ function(input, output, session) {
       project_rev$Type <- factor(project_rev$Type,
                                  levels = c("Target", "Projected"))
       
-      ggplot(project_rev, aes(x = Month, y = Amount, fill = Type)) +
-        geom_bar(stat = "identity", position = "dodge") +
-        xlab(element_blank()) +
-        ylab("Monthly Revenue") +
-        scale_y_continuous(labels = custom_dollar) +
-        ggtitle("2022 Revenue Breakdown") +
+      ggplot2::ggplot(project_rev, ggplot2::aes(x = Month, y = Amount, fill = Type)) +
+        ggplot2::geom_bar(stat = "identity", position = "dodge") +
+        ggplot2::xlab(ggplot2::element_blank()) +
+        ggplot2::ylab("Monthly Revenue") +
+        ggplot2::scale_y_continuous(labels = custom_dollar) +
+        ggplot2::ggtitle("2022 Revenue Breakdown") +
         #theme_cowplot() +
-        theme(legend.position = "none",
-              plot.margin = unit(c(0, 0, 0, 0), "null"))
+        ggplot2::theme(legend.position = "none",
+              plot.margin = ggplot2::unit(c(0, 0, 0, 0), "null"))
     })
   })
   
