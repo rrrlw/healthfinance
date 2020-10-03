@@ -32,5 +32,5 @@ Imports: ggplot2 (>= 3.3),
     tibble (>= 3.0)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-URL: https://rrrlw.github.io/healthfinance
+URL: https://rrrlw.github.io/healthfinance/
 BugReports: https://github.com/rrrlw/healthfinance/issues
