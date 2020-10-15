@@ -95,7 +95,7 @@ function(input, output, session) {
     assert_params()
     
     # setup boost vars
-    boost_amt <<- c(input$boost1,
+    boost_amt <- c(input$boost1,
                     input$boost2,
                     input$boost3,
                     input$boost4,
@@ -104,16 +104,16 @@ function(input, output, session) {
                     input$boost7,
                     input$boost8)
     
-    boost_proc[[1]] <<- input$boostproc1
-    boost_proc[[2]] <<- input$boostproc2
-    boost_proc[[3]] <<- input$boostproc3
-    boost_proc[[4]] <<- input$boostproc4
-    boost_proc[[5]] <<- input$boostproc5
-    boost_proc[[6]] <<- input$boostproc6
-    boost_proc[[7]] <<- input$boostproc7
-    boost_proc[[8]] <<- input$boostproc8
+    boost_proc[[1]] <- input$boostproc1
+    boost_proc[[2]] <- input$boostproc2
+    boost_proc[[3]] <- input$boostproc3
+    boost_proc[[4]] <- input$boostproc4
+    boost_proc[[5]] <- input$boostproc5
+    boost_proc[[6]] <- input$boostproc6
+    boost_proc[[7]] <- input$boostproc7
+    boost_proc[[8]] <- input$boostproc8
     
-    boost_start <<- c(lubridate::month(input$boostdur1[1]) + 12 * (lubridate::year(input$boostdur1[1]) - 2020),
+    boost_start <- c(lubridate::month(input$boostdur1[1]) + 12 * (lubridate::year(input$boostdur1[1]) - 2020),
                       lubridate::month(input$boostdur2[1]) + 12 * (lubridate::year(input$boostdur2[1]) - 2020),
                       lubridate::month(input$boostdur3[1]) + 12 * (lubridate::year(input$boostdur3[1]) - 2020),
                       lubridate::month(input$boostdur4[1]) + 12 * (lubridate::year(input$boostdur4[1]) - 2020),
@@ -122,7 +122,7 @@ function(input, output, session) {
                       lubridate::month(input$boostdur7[1]) + 12 * (lubridate::year(input$boostdur7[1]) - 2020),
                       lubridate::month(input$boostdur8[1]) + 12 * (lubridate::year(input$boostdur8[1]) - 2020))
     
-    boost_end <<- c(lubridate::month(input$boostdur1[2]) + 12 * (lubridate::year(input$boostdur1[2]) - 2020),
+    boost_end <- c(lubridate::month(input$boostdur1[2]) + 12 * (lubridate::year(input$boostdur1[2]) - 2020),
                     lubridate::month(input$boostdur2[2]) + 12 * (lubridate::year(input$boostdur2[2]) - 2020),
                     lubridate::month(input$boostdur3[2]) + 12 * (lubridate::year(input$boostdur3[2]) - 2020),
                     lubridate::month(input$boostdur4[2]) + 12 * (lubridate::year(input$boostdur4[2]) - 2020),
@@ -132,9 +132,9 @@ function(input, output, session) {
                     lubridate::month(input$boostdur8[2]) + 12 * (lubridate::year(input$boostdur8[2]) - 2020))
     
     # calculate vars
-    coeffs_2020 <<- str_to_vec_year(input$restore12)
-    coeffs_2021 <<- str_to_vec_year(input$restore24)
-    coeffs_2022 <<- str_to_vec_year(input$restore36)
+    coeffs_2020 <- str_to_vec_year(input$restore12)
+    coeffs_2021 <- str_to_vec_year(input$restore24)
+    coeffs_2022 <- str_to_vec_year(input$restore36)
     
     # calculate revenues
     revenues <- calc_rev(procedures = finances,
@@ -166,13 +166,13 @@ function(input, output, session) {
     prerev <- revenues$Target
     postrev <- revenues$Projected
     
-    prerev2020 <<- sum(prerev[1:12])
-    prerev2021 <<- sum(prerev[13:24])
-    prerev2022 <<- sum(prerev[25:36])
+    prerev2020 <- sum(prerev[1:12])
+    prerev2021 <- sum(prerev[13:24])
+    prerev2022 <- sum(prerev[25:36])
     
-    postrev2020 <<- sum(postrev[1:12])
-    postrev2021 <<- sum(postrev[13:24])
-    postrev2022 <<- sum(postrev[25:36])
+    postrev2020 <- sum(postrev[1:12])
+    postrev2021 <- sum(postrev[13:24])
+    postrev2022 <- sum(postrev[25:36])
     
     output$prerev2020 <- renderText({
       scales::dollar(prerev2020)
@@ -337,14 +337,14 @@ function(input, output, session) {
     
     # only read if file has actually been selected
     if (!is.null(filepath)) {
-      finances <<- readr::read_csv(filepath,
-                                   col_names = TRUE,
-                                   na = "NA",
-                                   col_types = readr::cols(
-                                     Name = readr::col_character(),
-                                     Volume = readr::col_integer(),
-                                     Revenue = readr::col_double()
-                                   ))
+      finances <- readr::read_csv(filepath,
+                                  col_names = TRUE,
+                                  na = "NA",
+                                  col_types = readr::cols(
+                                    Name = readr::col_character(),
+                                    Volume = readr::col_integer(),
+                                    Revenue = readr::col_double()
+                                  ))
       
       # display table of procedures
       output$currinput <- renderTable(finances, rownames = TRUE)
@@ -387,7 +387,7 @@ function(input, output, session) {
     assert_rownum(rownum)
     
     # delete row (N.B. CAN'T UNDO)
-    finances <<- finances[-rownum, ]
+    finances <- finances[-rownum, ]
     
     # update table of procedures
     output$currinput <- renderTable(finances, rownames = TRUE)
@@ -405,7 +405,7 @@ function(input, output, session) {
     
     # add row (bottom of df)
     temp_df <- tibble::tibble(Name = name, Volume = vol, Revenue = rev)
-    finances <<- rbind(finances, temp_df)
+    finances <- rbind(finances, temp_df)
     
     # update table of procedures
     output$currinput <- renderTable(finances, rownames = TRUE)
