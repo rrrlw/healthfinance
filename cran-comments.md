@@ -1,3 +1,13 @@
+This is a resubmission.
+
+First comment: add references to DESCRIPTION.
+Response: the functionality of the package is limited to generally accepted managerial accounting arithmetic, which would not require a citation. However, we have added a reference to a standard managerial accounting textbook at the end of the package description so that users have a resource if they are looking for in-depth explanations.
+
+Second comment: against CRAN policy to modify global environment
+Response: all uses of `<<-` have been changed to `<-` from inst/server.R (only R code that modified the global environment).
+
+Thank you for the helpful comments.
+
 ## Test environments
 
 * local R installation, R 4.0.2
