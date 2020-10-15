@@ -35,3 +35,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://rrrlw.github.io/healthfinance/
 BugReports: https://github.com/rrrlw/healthfinance/issues
+Suggests: 
+    testthat (>= 2.3)
